@@ -1,0 +1,51 @@
+//body {
+//    font-family: Arial, sans-serif;
+//    background-color: #f4f4f4;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    height: 100vh;
+//}
+//
+//.container {
+//    width: 300px;
+//}
+//
+//.form-container {
+//    background: white;
+//    padding: 20px;
+//    border-radius: 5px;
+//    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//    display: none; /* Hide both forms initially */
+//}
+//
+//.form-container.active {
+//    display: block; /* Show active form */
+//}
+//
+//h1 {
+//    margin-bottom: 20px;
+//}
+//
+//input {
+//    width: 100%;
+//    padding: 10px;
+//    margin-bottom: 10px;
+//}
+//
+//button {
+//    width: 100%;
+//    padding: 10px;
+//    background-color: #28a745;
+//    color: white;
+//    border: none;
+//    border-radius: 5px;
+//}
+//
+//button:hover {
+//    background-color: #218838;
+//}
+//
+//p {
+//    margin-top: 10px;
+//}

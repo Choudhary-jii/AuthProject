@@ -2,9 +2,9 @@ package com.example.CarDetails.Service;
 
 import com.example.CarDetails.Modal.Users;
 import com.example.CarDetails.Repository.UserRepository;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.SecretKey;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,7 @@ public class UserService implements UserDetailsService {
 
     @Value("${jwt.secret.key}")
     private String SECRET_KEY;
+    //private final String SECRET_KEY = "Z1v6Nk5t2Mhx7G3KXxH5C3R7pBw9Vq6kA8d4TnS2kP1D2g3J9YwG0N5sX9Hb7q4";
 
     public void saveUser(Users user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -72,38 +74,18 @@ public class UserService implements UserDetailsService {
                 user.getUsername(), user.getPassword(), authorities);
     }
 
-//    private String generateToken(Users user) {
-//        if (user == null) {
-//            throw new IllegalArgumentException("User cannot be null");
-//        }
-//        Claims claims = Jwts.claims().setSubject(user.getUsername());
-//        claims.put("userId", user.getId());
-//        claims.put("roles", user.getRole());
-//        return Jwts.builder()
-//                .setClaims(claims)
-//                .setIssuedAt(new Date())
-//                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // Token valid for 10 hours
-//                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-//                .compact();
-//    }
-private String generateToken(Users user) {
-    if (user == null) {
-        throw new IllegalArgumentException("User cannot be null");
+    private String generateToken(Users user) {
+
+        SecretKey key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+
+
+        return Jwts.builder()
+                .setSubject(user.getUsername())
+                .claim("userId", user.getId())
+                .claim("roles", user.getRole())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
+                .signWith(key, SignatureAlgorithm.HS256)
+                .compact();
     }
-    Claims claims = Jwts.claims().setSubject(user.getUsername());
-    claims.put("userId", user.getId());
-
-    // Add ROLE_ prefix to roles
-    claims.put("roles", user.getRole().stream()
-            .map(role -> "ROLE_" + role)
-            .collect(Collectors.toSet()));
-
-    return Jwts.builder()
-            .setClaims(claims)
-            .setIssuedAt(new Date())
-            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
-            .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-            .compact();
-}
-
 }

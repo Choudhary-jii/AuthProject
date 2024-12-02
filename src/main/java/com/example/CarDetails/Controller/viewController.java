@@ -28,6 +28,4 @@ public class viewController {
 
         return ResponseEntity.ok("Logout successful");
     }
-
-
 }

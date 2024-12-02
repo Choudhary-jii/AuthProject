@@ -1,6 +1,5 @@
 package com.example.CarDetails.Helper;
-//import com.example.CarDetails.DTO.CarDTO;
-//import com.example.CarDetails.Modal.Cars;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Component;
@@ -24,16 +23,3 @@ public class HelpingFunction {
     }
 
 }
-
-    // Convert entity to DTO
-//    private CarDTO convertToDTO(Cars car) {
-//        CarDTO dto = new CarDTO();
-//        dto.setProductId(car.getProductId());
-//        dto.setName(car.getName());
-//        dto.setBrand(car.getBrand());
-//        dto.setDescription(car.getDescription());
-//        dto.setImages(car.getImages());
-//        dto.setTags(car.getTags());
-//        return dto;
-//    }
-//}

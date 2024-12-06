@@ -9,7 +9,9 @@ This file provides an overview of the workflow and key functionalities of the Ca
  By default, the application creates an Admin user with the following credentials:
 
   Username: admin
+  
   Password: adminpassword
+  
  NOTE - Only an Admin user can create new Admin accounts. This ensures that administrative privileges are tightly controlled.
 
  

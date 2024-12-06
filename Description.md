@@ -23,12 +23,12 @@ This file provides an overview of the workflow and key functionalities of the Ca
   
 1. Authentication and Authorization
 
- Admin and User Roles:
+ - Admin and User Roles:
  
    Admins have full access to manage cars, users, and other admin functionalities.
    Regular users can manage their own cars only.
    
- Token-Based Authentication:
+ - Token-Based Authentication:
  
    Upon successful login, a JWT token is issued. This token must be included in the Authorization header for accessing protected endpoints.
    
@@ -36,7 +36,7 @@ This file provides an overview of the workflow and key functionalities of the Ca
 
 The application supports the following core features:
 
- Car Management(For USER Role & ADMIN Role)
+ - Car Management(For USER Role & ADMIN Role)
  
     Add a Car: Allows users to add new cars with a title, description, tags, and up to 10 images.
     
@@ -46,18 +46,18 @@ The application supports the following core features:
     
     Delete a Car: Users can delete their own cars, along with associated images from the filesystem.
     
-User Management (For ADMIN Role)
+- User Management (For ADMIN Role)
  
- Admin Functions: Create, update, and delete users. Create new Admin accounts.
+  -> Admin Functions: Create, update, and delete users. Create new Admin accounts.
    
- User Functions: Manage personal cars only.
+ ->User Functions: Manage personal cars only.
    
 3. Protected Endpoints
 
-  All critical endpoints are protected and require a valid JWT token.
-  Access to resources is verified:
-  Users can only access their own cars.
-  Admins can access all resources.
+  - All critical endpoints are protected and require a valid JWT token.
+  - Access to resources is verified:
+  - Users can only access their own cars.
+  - Admins can access all resources.
   
 4. Filesystem Integration
 

@@ -14,6 +14,7 @@ This file provides an overview of the workflow and key functionalities of the Ca
   
  NOTE - Only an Admin user can create new Admin accounts. This ensures that administrative privileges are tightly controlled.
 
+ --- 
  
 * Workflow of the Application
 
@@ -73,6 +74,8 @@ User Management
       Invalid credentials (401 Unauthorized).
       Resource not found (404 Not Found).
       Access denied (403 Forbidden).
+      
+ --- 
       
 Postman Documentation
 -

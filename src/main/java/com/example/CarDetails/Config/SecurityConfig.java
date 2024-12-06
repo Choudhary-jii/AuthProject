@@ -46,8 +46,10 @@ public class SecurityConfig{
                 .requestMatchers("/auth/login", "/auth/signup").permitAll()
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/admin/**").hasAuthority("ADMIN") // Only "ADMIN" can access
+                .requestMatchers("/api/cars/**").hasAuthority("USER") // Only "ADMIN" can access
+                .requestMatchers("/api/cars/**").hasAuthority("ADMIN")
                 .requestMatchers("/protected/admin-homepage").hasAuthority("ADMIN")
-                .requestMatchers("/protected/user-homepage").hasAnyAuthority("USER", "ADMIN") // "USER" or "ADMIN"
+                .requestMatchers("/protected/user-homepage").hasAuthority("USER") // "USER" or "ADMIN"
                 .anyRequest().authenticated()
         );
 

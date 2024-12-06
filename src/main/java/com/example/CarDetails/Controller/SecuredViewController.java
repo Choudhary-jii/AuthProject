@@ -15,6 +15,6 @@ public class SecuredViewController {
 
     @GetMapping("/admin-homepage")
     public String adminHome() {
-        return "signup"; // Returns the signup.html view
+        return "admin-homepage"; // Returns the signup.html view
     }
 }

@@ -1,3 +1,5 @@
+Authentication Project
+
 This project provides a lightweight authentication system using Spring Boot for the backend. It supports basic login, signup, and role-based access control. The frontend is minimal, allowing interaction via API endpoints.
 A more detailed overview of the project is decription file, this readme file mainly focus on installation/requirements
 
